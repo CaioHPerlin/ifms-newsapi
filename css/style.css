@@ -26,3 +26,17 @@ html, .fullscreen{
     text-align: center;
 }
 
+button{
+    background-color: #4a6f9d;
+    border: 2px solid white;
+    color: white;
+    font-family: 'Nanum Gothic', sans-serif;
+    padding: 5px 10px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+button:hover{
+    background-color: #5488c7;
+}

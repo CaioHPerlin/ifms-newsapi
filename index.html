@@ -10,10 +10,23 @@
     <meta name="theme-color" content="#5488c7">
     <meta name="description" content="Twitter só que bom.">
     <title>Twitter</title>
+    <script type="module" src="js/db.js"></script>
 </head>
 <body class="fullscreen">
     <div class="container">
         <h1 class="title">🐤</h1>
+        <form>
+            <input required type="text" placeholder="Nome" name="nome">   
+            <input required type="text" placeholder="Idade" name="idade">   
+            <div class="button-container">
+                <button type="submit" id="btn-save">Salvar</button>
+                <button type="button" id="btn-list">Listar</button>
+            </div>
+        </form>
+        
+        <div>
+            <output></output>
+        </div>
     </div>
     <script src="js/main.js"></script>
 </body>
