@@ -33,6 +33,7 @@ window.addEventListener('DOMContentLoaded', async (e) => {
 
     const buttons = document.getElementsByTagName('button');
     buttons[1].addEventListener('click', getData);
+
 });
 
 
@@ -44,13 +45,32 @@ async function addData(form) {
 
     const tx = await db.transaction('pessoas', 'readwrite');
     const store = tx.objectStore('pessoas');
-    store.add({
+    store.put({
         nome: form.nome.value,
         idade: form.idade.value
     });
     await tx.done;
     form.reset();
+    getData();
 }
+
+async function deleteData(userName) {
+    if(db == undefined){
+        showResult('O banco de dados está fechado');
+        return;
+    }
+
+    const tx = await db.transaction('pessoas', 'readwrite');
+    const store = tx.objectStore('pessoas');
+    const user = await store.get(userName);
+    if(user){
+        store.delete(userName);
+        getData();
+    }else{
+        showResult('Usuário não encontrado no banco!');
+    }
+}
+
 
 async function getData() {
     if(db == undefined){
@@ -61,11 +81,31 @@ async function getData() {
     const tx = await db.transaction('pessoas', 'readonly');
     const store = tx.objectStore('pessoas');
     const selection = await store.getAll();
-    if(selection){
-        showResult('Dados do banco: ' + JSON.stringify(selection));
-    }else{
-        showResult('Não há nenhum dado no banco!');
+    showUsers(selection)
+    
+    if(selection.length == 0){
+        showResult('Não há nenhum dado no banco!')
     }
+}
+
+function showUsers(users){
+    const list = document.querySelector('.user-list');
+    list.innerHTML = '';
+    users.map(user => {
+        const userHTML = document.createElement('code');
+
+        const userInfo = document.createElement('h2');
+        userInfo.innerHTML = `${user.nome} | ${user.idade}`
+
+        const deleteButton = document.createElement('button');
+        deleteButton.innerHTML = 'Delete';
+        deleteButton.addEventListener('click', () => deleteData(user.nome))
+
+        userHTML.appendChild(userInfo);
+        userHTML.appendChild(deleteButton);
+
+        list.appendChild(userHTML);
+    })
 }
 
 function showResult(text){

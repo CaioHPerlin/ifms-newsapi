@@ -15,6 +15,9 @@ html, .fullscreen{
 }
 
 .container{
+    display: grid;
+    grid-template-columns: 100%;
+    grid-row-gap: 20px;
     padding: 10px;
     margin: auto;
     background-color: #4a6f9d;
@@ -24,6 +27,12 @@ html, .fullscreen{
 .title{
     font-size: 2rem;
     text-align: center;
+}
+
+.user-list > *{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 button{
