@@ -20,8 +20,10 @@ html, .fullscreen{
     grid-row-gap: 20px;
     padding: 10px;
     margin: auto;
-    background-color: #4a6f9d;
-    border-radius: 10px;
+}
+
+h2, p{
+    margin: 0;
 }
 
 .title{
@@ -35,13 +37,23 @@ html, .fullscreen{
     align-items: center;
 }
 
+input{
+    display: inline-block;
+    border-radius: 5px 0 0 5px;
+    border: 2px solid white;
+}
+
+input:focus{
+    outline: none;
+}
+
 button{
     background-color: #4a6f9d;
     border: 2px solid white;
     color: white;
     font-family: 'Nanum Gothic', sans-serif;
     padding: 5px 10px;
-    border-radius: 15px;
+    border-radius: 0px 15px 15px 0px;
     cursor: pointer;
     transition: 0.5s;
 }
@@ -49,3 +61,45 @@ button{
 button:hover{
     background-color: #5488c7;
 }
+
+header{
+    padding-bottom: 20px;
+}
+
+header div{
+    display: flex;
+    justify-content: center;
+}
+
+main{
+    display: grid;
+    grid-template-columns: 22% 22% 22% 22%;
+    justify-items: center;
+    justify-content: space-evenly;
+}
+
+main>*{
+    width: 100%;
+    margin-bottom: 40px;
+    background-color: #4a6f9d;
+}
+
+article .text{
+    padding: 10px;
+}
+
+article h2{
+    margin-bottom: 10px;
+}
+
+main a{
+    text-decoration: none;
+    color: white;
+}
+
+img{
+    object-fit: cover;
+    width: 100%;
+    height: 300px;
+}
+  

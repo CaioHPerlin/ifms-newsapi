@@ -9,25 +9,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#5488c7">
     <meta name="description" content="Twitter só que bom.">
-    <title>Twitter</title>
-    <script type="module" src="js/db.js"></script>
+    <title>NewsAPI0</title>
 </head>
 <body class="fullscreen">
     <div class="container">
-        <h1 class="title">🐤</h1>
-        <form>
-            <input required type="text" placeholder="Nome" name="nome">   
-            <input required type="text" placeholder="Idade" name="idade">   
-            <div class="button-container">
-                <button type="submit" id="btn-save">Salvar</button>
-                <button type="button" id="btn-list">Listar</button>
+        <header>
+            <h1 class="title">🐤 NewsAPI</h1>
+            <div>
+                <input type="text" id="search-bar" placeholder="Notícia Legal"/>
+                <button id="search-btn">Pesquisar</button>
             </div>
-        </form>
-        
-        <div>
-            <output></output>
-            <div class="user-list"></div>
-        </div>
+        </header>
+
+        <main></main>
     </div>
     <script src="js/main.js"></script>
 </body>
